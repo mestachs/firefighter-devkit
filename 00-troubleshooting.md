@@ -23,7 +23,10 @@
    - As a service provider, even if it’s not your fault understand that you block their business
    - Keep them informed of the progress or non progress : nothing is more fustrating that no news.
 - Create a jira/github/... issue
-- Notify your manager, assign a "incident lead"
+- Follow the procedure
+   - Notify your manager, 
+   - assign an "incident lead" to handle the communication
+   - find "experts" to help you test/confirm your analysis
 - Comment as you find information 
    - What is working
    - What is not working, when it last time reported working,…
@@ -48,12 +51,12 @@
  - Why :
     - Every beginning of the month, I'm supposed to send the report to accounting. I was trying to generate the monthly report but then everything went dark    
  - Evidences
-   - Stacktrace, error message
-   - thread dump, heap dump,...
+   - Stacktrace, error message-codes
+   - Thread dump, heap dump, core dump, tcp dump...
    - Logs (application, web server access logs)
    - Intermittent issue : it works but one request out of two is failing
    - Developer console errors in IE/Chrome/Firefox
-   - Which query are running in prod
+   - Which queries are running on the database
 
 > Automate evidence collections : 
     - log forwarded to aggregator, 
@@ -77,6 +80,16 @@
 * a user is abusing the system (github.com : commit message holding a dvd iso)
 * marketing just sent user "Deals" or black friday ?
 
+
+**Make assumption and verify you have a safetynet, change one thing at a time**
+
+* make sure you have backups (db, config files,...)
+* once you have mental model of the issue, test you hypothesis.
+* avoid additional incidents, only one person change one thing at a time.
+* if something needs to be changed, do one thing a time to be sure on what was the corrective action.
+* keep logs of commands and outputs for postmortem
+
+
 **Update the documentation / FAQ, Improve our tests** 
 
 Document and reflect on the issue
@@ -85,9 +98,7 @@ Document and reflect on the issue
 - Did you find something via google/stackoverflow ?
 - Can we have similar problem in another service/app, in another team ?
 - What can we improve to prevent this ?
-
-
-
+- Do a post mortem on what to improve in your procedure
 
 ## More on the subject
 

@@ -2,43 +2,47 @@
 
 ## DNS what ?
 
-### Unknown entry
-
-```shell {.line-numbers}
-curl -vvv http://neverexisteddomains.com
-* Rebuilt URL to: http://neverexisteddomains.com/
-* Could not resolve host: neverexisteddomains.com
-* Closing connection 0
-curl: (6) Could not resolve host: neverexisteddomains.com
-```
-
-
-```shell{.line-numbers}
-dig neverexisteddomains.com
-
-; <<>> DiG 9.10.3-P4-Ubuntu <<>> neverexisteddomains.com
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 43906
-;; flags: qr rd ra ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 0
-
-;; QUESTION SECTION:
-;neverexisteddomains.com.	IN	A
-
-;; Query time: 1 msec
-;; SERVER: 127.0.1.1#53(127.0.1.1)
-;; WHEN: Mon Jul 08 21:04:20 CEST 2019
-;; MSG SIZE  rcvd: 41
-```
-
-
-```shell {.line-numbers}
-whois neverexisteddomains.com
-No match for "NEVEREXISTEDDOMAINS.COM".
->>> Last update of whois database: 2019-07-08T19:04:39Z <<<
-```
+In the first steps of network call a server need to translate a machine name to an IP address by asking a dns server if he knows about it. This might be the first step to fail too.
 
 ### Known entry
+
+Let's run a curl command to google.be and force ipv4, verbose logs
+
+```shell {.line-numbers}
+curl -vvv -4 google.be
+* Rebuilt URL to: google.be/
+*   Trying 216.58.211.99...
+* Connected to google.be (216.58.211.99) port 80 (#0)
+> GET / HTTP/1.1
+> Host: google.be
+> User-Agent: curl/7.47.0
+> Accept: */*
+> 
+< HTTP/1.1 301 Moved Permanently
+< Location: http://www.google.be/
+< Content-Type: text/html; charset=UTF-8
+< Date: Tue, 09 Jul 2019 17:14:23 GMT
+< Expires: Thu, 08 Aug 2019 17:14:23 GMT
+< Cache-Control: public, max-age=2592000
+< Server: gws
+< Content-Length: 218
+< X-XSS-Protection: 0
+< X-Frame-Options: SAMEORIGIN
+< 
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>301 Moved</TITLE></HEAD><BODY>
+<H1>301 Moved</H1>
+The document has moved
+<A HREF="http://www.google.be/">here</A>.
+</BODY></HTML>
+* Connection #0 to host google.be left intact
+```
+
+At line `4`, you see that the name has been resolved to 216.58.211.99
+At line `10`, the server tells you that `google.be` has been moved
+At line `11`, the server tells you that you can follow `http://www.google.be/`
+
+If you want to find how curl found the ip address, you can use dig
 
 ```shell {.line-numbers}
 dig google.be
@@ -55,7 +59,7 @@ dig google.be
 ;google.be.			IN	A
 
 ;; ANSWER SECTION:
-google.be.		255	IN	A	172.217.168.227
+google.be.		255	IN	A	216.58.208.99
 
 ;; Query time: 31 msec
 ;; SERVER: 127.0.1.1#53(127.0.1.1)
@@ -63,7 +67,13 @@ google.be.		255	IN	A	172.217.168.227
 ;; MSG SIZE  rcvd: 54
 ```
 
-whois might find some info
+At line `15`, you find the address resolved by curl and it tells you that you can use that dns resolution for `255` seconds.
+
+The challenge for dns server configuration is having a long enough time-to-live (ttl) to avoid extra dns lookup (and so slowing down the total request time) and short enough to allow fail over to take place (and redirect to another server in case of crash or overloaded network)
+
+These changes might take times to be reflected in all dns servers/clients location, up to 48h if you specify a long ttl.
+
+`whois` might find some extra infos about the owner and its dns server.
 
 ```sh {.line-numbers}
 whois google.com
@@ -95,17 +105,86 @@ whois google.com
 
 but note that whois has now less value since GDPR is here.
 
+
+### Unknown entry
+
+If you try to curl a machine name that can't be resolved to an ip address
+
+```shell {.line-numbers}
+curl -vvv http://neverexisteddomains.com
+* Rebuilt URL to: http://neverexisteddomains.com/
+* Could not resolve host: neverexisteddomains.com
+* Closing connection 0
+curl: (6) Could not resolve host: neverexisteddomains.com
+```
+
+You might want to a bit more about that domain and use the dig command
+
+```shell{.line-numbers}
+dig neverexisteddomains.com
+
+; <<>> DiG 9.10.3-P4-Ubuntu <<>> neverexisteddomains.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 43906
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;neverexisteddomains.com.	IN	A
+
+;; Query time: 1 msec
+;; SERVER: 127.0.1.1#53(127.0.1.1)
+;; WHEN: Mon Jul 08 21:04:20 CEST 2019
+;; MSG SIZE  rcvd: 41
+```
+
+The answer section is empty.
+
+Who is might help find the owner, but when the entry is unknown nothing interesting will come up
+
+```shell {.line-numbers}
+whois neverexisteddomains.com
+No match for "NEVEREXISTEDDOMAINS.COM".
+>>> Last update of whois database: 2019-07-08T19:04:39Z <<<
+```
+
+and whois don't a records matching that domain.
+
 ### Classic issues
 
 #### Ends with .
 
+Let's say you own the customdomain.be and add a CNAME record
+
+```shell {.line-numbers}
+domain IN CNAME myhosting.cloud.be
+```
+this will make `domain.customdomain.be` resolve to `myhosting.cloud.be.be.customdomain.be`
+which is probably not what you want.
+
+You need to add an extra dot : 
+
+```shell {.line-numbers}
+domain IN CNAME myhosting.cloud.be.
+```
+resolve `domain.customdomain.be` to `myhosting.cloud.be`
+
 #### Propagation delay
+
+https://www.quora.com/How-does-DNS-propagation-work
 
 #### Aggressive cache
 
-eg java will cache nearly forever, except if you tell him so.
+eg java will cache nearly forever, except if you tell him to not do so.
 
 https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-jvm-ttl.html
+
+#### Some dns server do redirect
+
+eg OVH offer "transparent" http redirect based on TXT dns records
+
+this a mechanism to remember when debugging http request flow.
+
 
 ## HTTPS
 
@@ -325,19 +404,29 @@ debug2: key: /home/ec2-user/.ssh/id_ed25519
 ```
 
 Note that the look up policy can be influenced by `~/.ssh/config`
-In the worstcase scenario, you have plenty of available keys and ssh try them all and then server bans you for too much trials. :(
+In the worst case scenario, you have plenty of available keys and ssh try them all and then server bans you for too much trials. :(
 
 ## My app can't connect to the db
 
-Ideally try as if in the network of your app.
+Try as if in the network of your app, ideally on the same host.
 
-Possible causes :
+The firewall rules, might allow one host and not another.
 
-* firewall ? vlan ?
+```viz
+digraph G {
+App -> firewall[color="red"];
+firewall ->Db[style=dashed,color="darkgreen"];
+OtherServer -> firewall[color="darkgreen"];
+}
+```
+
+Let's enumerate some possible causes:
+
+* firewall denying access? vlan segregation ?
 * running on non-default port ?
-* correct url (host, port,...) ? 
-* correct credentials ?
-* storage available ? lack of disk space can lead to strange behavior
+* you don't use the correct url (host, port,...) ? 
+* you don't use the correct credentials ?
+* no more storage available ? lack of disk space can lead to strange behavior
 * server is really down ?
 
 Tools to diagnose if the error message isn't that clear
@@ -432,3 +521,8 @@ Feature: simple nmap attack (sanity check)
 
 ## wireshark
 
+
+## Uptime monitoring tools
+
+* https://www.uptrends.com/tools/uptime
+* https://www.pingdom.com/product/uptime-monitoring/

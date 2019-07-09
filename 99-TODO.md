@@ -1,0 +1,65 @@
+## WIP : Sample scenarios
+
+- network
+  - dns : no dns, ipv6, sometimes ok, sometimes not
+  - tools
+     - dig
+     - pingdom (multisite)
+- infra 
+  - diskspace : no space left on device
+  - oom killer 
+  - ntpd ?
+  - tools
+      - df, du, iotop,...
+- browser
+  - ad blocker : /ad, /analytics,...
+  - mixed content
+  - csp
+  - cors
+- loadbalancer
+  - bad gateway
+  - http timeout
+  - ddos, self-ddos
+  - slow clients
+  - heavy clients
+  - queueing theory
+- app
+  - deadlock
+    - lock
+    - pool exhaustion (threads, db connections,...)
+    - the importance of timeouts
+  - slow 
+     - warm up
+     - cache miss
+     - verbose log level, synchronous, non buffered
+     - regexp
+  - infinite loop
+    - cpu
+  - garbage collection
+    - pauses
+    - plenty of object allocations 
+    - memory leaks
+    - out of memory
+  - strange bugs
+      - fat client deployed from a shared drive
+      - ftp active
+  - zip/xml/... bomb
+  - workers
+      - paging
+      - retries (becareful of too much retries)
+  - tools : 
+    - thread dumps : kill -3
+    - memory
+    - application performance monitoring
+- db
+  - prepared statement 
+  - select n + 1
+  - select * from db
+  - orm vs sql
+  - slow queries
+  - non tuned memory/storage settings
+  - tools : 
+    - explain plan
+    - pgtop, mytop, db2top,... or their poor-man equivalent sql
+- external services
+  - degrade/fail gracefully

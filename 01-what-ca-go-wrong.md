@@ -2,9 +2,12 @@
 
 ## What can go wrong ?
 
+> Everything. 
+> -- said the developer
+
 ### Let the music play
 
-accessing a website triggers plenty of activity on plenty of components/server
+Accessing a website triggers plenty of activity on plenty of components/server
 
 ```sequence {theme="simple"}
 Title: Let the request flow
@@ -49,10 +52,9 @@ Worker-> External Service: mail
 You are reading this book
 the skills :
   - awareness : most developers don't know the complete stack, never observe their application failing, learn from your mistakes 
-  - evidence collection : get the logs,traces with the correct tool
-  - deb
+  - evidence collection : get the logs, traces with the correct tool
 
-### Sample scenario
+## WIP : Sample scenarios
 
 - network
   - dns : no dns, ipv6, sometimes ok, sometimes not
