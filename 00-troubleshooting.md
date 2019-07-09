@@ -94,6 +94,7 @@ Document and reflect on the issue
 - http://www.catb.org/esr/faqs/smart-questions.html 
 - https://www.amazon.com/DevOps-Troubleshooting-Linux-Server-Practices/dp/0321832043 
 - https://pragprog.com/book/pbdp/debug-it 
+- https://jvns.ca/blog/2019/06/23/a-few-debugging-resources/
 - https://twitter.com/b0rk/status/1146159551315677189
 - https://twitter.com/b0rk/status/1145350304583622656
 - https://twitter.com/b0rk/status/1146149101995778054
