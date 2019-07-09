@@ -52,7 +52,7 @@
    - thread dump, heap dump,...
    - Logs (application, web server access logs)
    - Intermittent issue : it works but one request out of two is failing
-   - Developper console errors in IE/Chrome/Firefox
+   - Developer console errors in IE/Chrome/Firefox
    - Which query are running in prod
 
 > Automate evidence collections : 
@@ -66,7 +66,7 @@
 
 * Use a dichotomic algorithm
 * Use heuristic « gut feeling »
-* Use brute force in last ressort
+* Use brute force in last resort
 
 **Try to relate to a previous issue or a change in your code/infrastructure**
 
