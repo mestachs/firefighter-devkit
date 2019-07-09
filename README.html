@@ -1,0 +1,1004 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/mestachs/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.4.3/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////home/mestachs/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.4.3/node_modules/@shd101wyy/mume/dependencies/js-sequence-diagrams/sequence-diagram-min.css">
+      
+
+      
+      
+      
+      
+      
+      <script type="text/javascript" src="file:////home/mestachs/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.4.3/node_modules/@shd101wyy/mume/dependencies/webfont/webfontloader.js" charset="UTF-8"></script><script type="text/javascript" src="file:////home/mestachs/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.4.3/node_modules/@shd101wyy/mume/dependencies/raphael/raphael.js" charset="UTF-8"></script><script type="text/javascript" src="file:////home/mestachs/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.4.3/node_modules/@shd101wyy/mume/dependencies/underscore/underscore.js" charset="UTF-8"></script><script type="text/javascript" src="file:////home/mestachs/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.4.3/node_modules/@shd101wyy/mume/dependencies/js-sequence-diagrams/sequence-diagram-min.js" charset="UTF-8"></script>
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <p><img src="assets/troubleshooting.png?0.9359893702845061" alt><br>
+<a href="https://github.com/mestachs/firefighter-devkit/blob/master/LICENSE.md">Attribution-NonCommercial-ShareAlike 4.0 International</a></p>
+<ul>
+<li><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#keep-calm">Keep calm</a></li>
+<li><a href="#document-follow-procedures">Document &amp; follow procedures</a></li>
+<li><a href="#reproduce-diagnose-fix-reflect">Reproduce - Diagnose - Fix - Reflect</a></li>
+<li><a href="#try-to-locate-the-problem">Try to locate the problem</a></li>
+<li><a href="#more-on-the-subject">More on the subject</a></li>
+</ul>
+</li>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#what-can-go-wrong">What can go wrong ?</a>
+<ul>
+<li><a href="#let-the-music-play">Let the music play</a></li>
+<li><a href="#the-bad-news">The Bad news</a></li>
+<li><a href="#the-good-news">The Good news</a></li>
+<li><a href="#sample-scenario">Sample scenario</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#networking">Networking</a>
+<ul>
+<li><a href="#dns-what">DNS what ?</a>
+<ul>
+<li><a href="#unknown-entry">Unknown entry</a></li>
+<li><a href="#known-entry">Known entry</a></li>
+<li><a href="#classic-issues">Classic issues</a>
+<ul>
+<li><a href="#ends-with">Ends with .</a></li>
+<li><a href="#propagation-delay">Propagation delay</a></li>
+<li><a href="#aggressive-cache">Aggressive cache</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#https">HTTPS</a>
+<ul>
+<li><a href="#self-signed-certificate">Self signed certificate</a></li>
+<li><a href="#external-assessment">External assessment</a></li>
+<li><a href="#test-your-client-library">Test your client library</a></li>
+</ul>
+</li>
+<li><a href="#ssh">ssh</a>
+<ul>
+<li><a href="#permission-denied">Permission denied</a></li>
+</ul>
+</li>
+<li><a href="#my-app-cant-connect-to-the-db">My app can&apos;t connect to the db</a>
+<ul>
+<li><a href="#try-with-a-command-line-tool">Try with a command line tool</a></li>
+<li><a href="#try-with-telnet">Try with telnet</a></li>
+<li><a href="#try-with-netcat">Try with netcat</a></li>
+</ul>
+</li>
+<li><a href="#nmap">nmap</a>
+<ul>
+<li><a href="#self-checking">self checking</a></li>
+<li><a href="#making-the-web-secure-one-unit-test-at-a-time">Making the web secure, one unit test at a time</a></li>
+</ul>
+</li>
+<li><a href="#wireshark">wireshark</a></li>
+</ul>
+</li>
+</ul>
+<h1 class="mume-header" id="troubleshooting">Troubleshooting</h1>
+
+<h2 class="mume-header" id="keep-calm">Keep calm</h2>
+
+<img src="assets/keepcalm.png?0.40278306785100826" width="300px" height="300px" title="keep calm and don&apos;t restart your compulter" alt="keep calm and don&apos;t restart your compulter">
+<ul>
+<li>Keep calm, you won&#x2019;t be fired
+<ul>
+<li>They should reflect on how you ended up messing up with their production.</li>
+</ul>
+</li>
+<li>Don&#x2019;t just restart the server, find the root cause.
+<ul>
+<li>except if you know that something really wrong is going on and it&apos;s better to unplug everything : no service is sometime better than wrong/bad service.</li>
+</ul>
+</li>
+<li>If after 30m/1h you don&#x2019;t have a clue than may be restarting can be a way of getting back to business.</li>
+</ul>
+<blockquote>
+<p>I know this doesn&apos;t sound webscale<sup>tm</sup>, but you are not google.</p>
+</blockquote>
+<h2 class="mume-header" id="document-follow-procedures">Document &amp; follow procedures</h2>
+
+<ul>
+<li>Communicate to users and management, service desks :
+<ul>
+<li>dedicated slack channel</li>
+<li>status page, twitter account</li>
+</ul>
+</li>
+<li>Apologize and commit to keep them updated
+<ul>
+<li>As a service provider, even if it&#x2019;s not your fault understand that you block their business</li>
+<li>Keep them informed of the progress or non progress : nothing is more fustrating that no news.</li>
+</ul>
+</li>
+<li>Create a jira/github/... issue</li>
+<li>Notify your manager, assign a &quot;incident lead&quot;</li>
+<li>Comment as you find information
+<ul>
+<li>What is working</li>
+<li>What is not working, when it last time reported working,&#x2026;</li>
+<li>What was modified lately (lastest code modified, deployment, infra, &#x2026;)</li>
+</ul>
+</li>
+<li>Try to find and document a workaround if applicable
+<ul>
+<li>eg : don&apos;t search by name, but by inventory code</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="reproduce-diagnose-fix-reflect">Reproduce - Diagnose - Fix - Reflect</h2>
+
+<p><strong>Clarify and collect informations</strong></p>
+<ul>
+<li>Where :
+<ul>
+<li>staging, production,...</li>
+<li>client, server, db,...</li>
+</ul>
+</li>
+<li>What :
+<ul>
+<li>Error, missing data, bad data, empty screen,&#x2026;</li>
+</ul>
+</li>
+<li>How</li>
+<li>Why</li>
+<li>Evidences
+<ul>
+<li>Stacktrace, error message</li>
+<li>thread dump, heap dump,...</li>
+<li>Logs (application, web server access logs)</li>
+<li>Intermittent issue : it works but one request out of two is failing</li>
+<li>Developper console errors in IE/Chrome/Firefox</li>
+<li>Which query are running in prod</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Automate evidence collections :<br>
+- log forwarded,<br>
+- sentry alike service,<br>
+- shell script to run jstack, collect db queries,<br>
+- APM,<br>
+...</p>
+</blockquote>
+<p><strong>Try to relate to a previous issue or a change in your code/infrastructure</strong></p>
+<p><strong>Update the documentation / FAQ, Improve our tests</strong></p>
+<p>Document and reflect on the issue</p>
+<ul>
+<li>Do we have already an entry in our FAQ (or start one) ?</li>
+<li>Did you find something via google/stackoverflow ?</li>
+<li>Can we have similar problem in another service/app, in another team ?</li>
+<li>What can we improve to prevent this ?</li>
+</ul>
+<h2 class="mume-header" id="try-to-locate-the-problem">Try to locate the problem</h2>
+
+<ul>
+<li>Use a dichotomic algorithm</li>
+<li>Use heuristic &#xAB; gut feeling &#xBB;</li>
+<li>Use brute force in last ressort</li>
+</ul>
+<h2 class="mume-header" id="more-on-the-subject">More on the subject</h2>
+
+<ul>
+<li><a href="http://www.catb.org/esr/faqs/smart-questions.html">http://www.catb.org/esr/faqs/smart-questions.html</a></li>
+<li><a href="https://www.amazon.com/DevOps-Troubleshooting-Linux-Server-Practices/dp/0321832043">https://www.amazon.com/DevOps-Troubleshooting-Linux-Server-Practices/dp/0321832043</a></li>
+<li><a href="https://pragprog.com/book/pbdp/debug-it">https://pragprog.com/book/pbdp/debug-it</a></li>
+</ul>
+<h1 class="mume-header" id="introduction">Introduction</h1>
+
+<h2 class="mume-header" id="what-can-go-wrong">What can go wrong ?</h2>
+
+<h3 class="mume-header" id="let-the-music-play">Let the music play</h3>
+
+<p>accessing a website triggers plenty of activity on plenty of components/server</p>
+<div theme="simple" class="sequence">Title: Let the request flow
+Browser-&gt;DNS: whois example.com 
+Browser-&gt;Load balancer: get http://example.com
+Load balancer-&gt;Browser: moved to https://example.com
+Load balancer-&gt;App server: http request
+App server--&gt; Database: sql
+App server--&gt; Database: sql
+Browser-&gt;Load balancer: get https://example.com/style.css
+Load balancer-&gt;App server: http request 
+Browser-&gt;Load balancer: get https://example.com/bundle.js
+Load balancer-&gt;App server: http request
+Load balancer -&gt; Browser:
+Browser-&gt;Load balancer: get https://example.com/extra.json
+Load balancer-&gt;App server: http request
+App server--&gt; Database: sql
+App server--&gt; Database: sql
+App server-&gt; Load balancer:
+Load balancer -&gt; Browser:
+
+Browser-&gt;Load balancer: post https://example.com/trigger {somejson}
+Load balancer-&gt;App server: http post
+App server-&gt; Database: sql
+App server-&gt; Redis: enqueue background job
+App server-&gt; Database: sql
+App server-&gt; Load balancer:
+Load balancer -&gt; Browser:
+Worker-&gt; Redis: get next job
+Worker-&gt; Database: sql
+Worker-&gt; External Service: scrapping or external api
+Worker-&gt; External Service: mail
+
+</div><h3 class="mume-header" id="the-bad-news">The Bad news</h3>
+
+<blockquote>
+<p>Every arrow can fail, take hours to complete, never complete,...<br>
+Every box can mis-behave, welcome to the internet.</p>
+</blockquote>
+<h3 class="mume-header" id="the-good-news">The Good news</h3>
+
+<p>You are reading this book<br>
+the skills :</p>
+<ul>
+<li>awareness : most developpers don&apos;t know the all stack, never observe their application failing, learn from your mistakes</li>
+<li>evidence collection : get the logs,traces with the correct tool</li>
+<li>deb</li>
+</ul>
+<h3 class="mume-header" id="sample-scenario">Sample scenario</h3>
+
+<ul>
+<li>network
+<ul>
+<li>dns : no dns, ipv6, sometimes ok, sometimes not</li>
+<li>tools
+<ul>
+<li>dig</li>
+<li>pingdom (multisite)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>infra
+<ul>
+<li>diskspace : no space left on device</li>
+<li>oom killer</li>
+<li>ntpd ?</li>
+<li>tools
+<ul>
+<li>df, du, iotop,...</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>browser
+<ul>
+<li>ad blocker : /ad, /analytics,...</li>
+<li>mixed content</li>
+<li>csp</li>
+<li>cors</li>
+</ul>
+</li>
+<li>loadbalancer
+<ul>
+<li>bad gateway</li>
+<li>http timeout</li>
+<li>ddos, self-ddos</li>
+<li>slow clients</li>
+<li>heavy clients</li>
+<li>queueing theory</li>
+</ul>
+</li>
+<li>app
+<ul>
+<li>deadlock
+<ul>
+<li>lock</li>
+<li>pool exhaustion (threads, db connections,...)</li>
+<li>the importance of timeouts</li>
+</ul>
+</li>
+<li>slow
+<ul>
+<li>warm up</li>
+<li>cache miss</li>
+<li>verbose log level, synchronous, non buffered</li>
+<li>regexp</li>
+</ul>
+</li>
+<li>infinite loop
+<ul>
+<li>cpu</li>
+</ul>
+</li>
+<li>garbage collection
+<ul>
+<li>pauses</li>
+<li>plenty of object allocations</li>
+<li>memory leaks</li>
+<li>out of memory</li>
+</ul>
+</li>
+<li>strange bugs
+<ul>
+<li>fat client deployed from a shared drive</li>
+<li>ftp active</li>
+</ul>
+</li>
+<li>zip/xml/... bomb</li>
+<li>workers
+<ul>
+<li>paging</li>
+<li>retries (becareful of too much retries)</li>
+</ul>
+</li>
+<li>tools :
+<ul>
+<li>thread dumps : kill -3</li>
+<li>memory</li>
+<li>application performance monitoring</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>db
+<ul>
+<li>prepared statement</li>
+<li>select n + 1</li>
+<li>select * from db</li>
+<li>orm vs sql</li>
+<li>slow queries</li>
+<li>non tuned memory/storage settings</li>
+<li>tools :
+<ul>
+<li>explain plan</li>
+<li>pgtop, mytop, db2top,... or their poor-man equivalent sql</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>external services
+<ul>
+<li>degrade/fail gracefully</li>
+</ul>
+</li>
+</ul>
+<h1 class="mume-header" id="networking">Networking</h1>
+
+<h2 class="mume-header" id="dns-what">DNS what ?</h2>
+
+<h3 class="mume-header" id="unknown-entry">Unknown entry</h3>
+
+<pre data-role="codeBlock" data-info="shell {.line-numbers}" class="language-shell line-numbers"><span class="token function">curl</span> -vvv http://neverexisteddomains.com
+* Rebuilt URL to: http://neverexisteddomains.com/
+* Could not resolve host: neverexisteddomains.com
+* Closing connection 0
+curl: <span class="token punctuation">(</span>6<span class="token punctuation">)</span> Could not resolve host: neverexisteddomains.com
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="shell{.line-numbers}" class="language-shell line-numbers"><span class="token function">dig</span> neverexisteddomains.com
+
+<span class="token punctuation">;</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&gt;&gt;</span> DiG 9.10.3-P4-Ubuntu <span class="token operator">&lt;&lt;</span><span class="token operator">&gt;&gt;</span> neverexisteddomains.com
+<span class="token punctuation">;</span><span class="token punctuation">;</span> global options: +cmd
+<span class="token punctuation">;</span><span class="token punctuation">;</span> Got answer:
+<span class="token punctuation">;</span><span class="token punctuation">;</span> -<span class="token operator">&gt;&gt;</span>HEADER<span class="token operator">&lt;&lt;</span>- opcode: QUERY, status: NXDOMAIN, id: 43906
+<span class="token punctuation">;</span><span class="token punctuation">;</span> flags: qr rd ra ad<span class="token punctuation">;</span> QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 0
+
+<span class="token punctuation">;</span><span class="token punctuation">;</span> QUESTION SECTION:
+<span class="token punctuation">;</span>neverexisteddomains.com.	IN	A
+
+<span class="token punctuation">;</span><span class="token punctuation">;</span> Query time: 1 msec
+<span class="token punctuation">;</span><span class="token punctuation">;</span> SERVER: 127.0.1.1<span class="token comment">#53(127.0.1.1)</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span> WHEN: Mon Jul 08 21:04:20 CEST 2019
+<span class="token punctuation">;</span><span class="token punctuation">;</span> MSG SIZE  rcvd: 41
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="shell {.line-numbers}" class="language-shell line-numbers">whois neverexisteddomains.com
+No match <span class="token keyword">for</span> <span class="token string">&quot;NEVEREXISTEDDOMAINS.COM&quot;</span><span class="token keyword">.</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Last update of whois database: 2019-07-08T19:04:39Z <span class="token operator">&lt;&lt;&lt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="known-entry">Known entry</h3>
+
+<pre data-role="codeBlock" data-info="shell {.line-numbers}" class="language-shell line-numbers"><span class="token function">dig</span> google.be
+
+<span class="token punctuation">;</span> <span class="token operator">&lt;&lt;</span><span class="token operator">&gt;&gt;</span> DiG 9.10.3-P4-Ubuntu <span class="token operator">&lt;&lt;</span><span class="token operator">&gt;&gt;</span> google.be
+<span class="token punctuation">;</span><span class="token punctuation">;</span> global options: +cmd
+<span class="token punctuation">;</span><span class="token punctuation">;</span> Got answer:
+<span class="token punctuation">;</span><span class="token punctuation">;</span> -<span class="token operator">&gt;&gt;</span>HEADER<span class="token operator">&lt;&lt;</span>- opcode: QUERY, status: NOERROR, id: 1690
+<span class="token punctuation">;</span><span class="token punctuation">;</span> flags: qr rd ra<span class="token punctuation">;</span> QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+<span class="token punctuation">;</span><span class="token punctuation">;</span> OPT PSEUDOSECTION:
+<span class="token punctuation">;</span> EDNS: version: 0, flags:<span class="token punctuation">;</span> udp: 4096
+<span class="token punctuation">;</span><span class="token punctuation">;</span> QUESTION SECTION:
+<span class="token punctuation">;</span>google.be.			IN	A
+
+<span class="token punctuation">;</span><span class="token punctuation">;</span> ANSWER SECTION:
+google.be.		255	IN	A	172.217.168.227
+
+<span class="token punctuation">;</span><span class="token punctuation">;</span> Query time: 31 msec
+<span class="token punctuation">;</span><span class="token punctuation">;</span> SERVER: 127.0.1.1<span class="token comment">#53(127.0.1.1)</span>
+<span class="token punctuation">;</span><span class="token punctuation">;</span> WHEN: Mon Jul 08 21:05:14 CEST 2019
+<span class="token punctuation">;</span><span class="token punctuation">;</span> MSG SIZE  rcvd: 54
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>whois might find some info</p>
+<pre data-role="codeBlock" data-info="sh {.line-numbers}" class="language-bash line-numbers">whois google.com
+   Domain Name: GOOGLE.COM
+   Registry Domain ID: 2138514_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.markmonitor.com
+   Registrar URL: http://www.markmonitor.com
+   Updated Date: 2018-02-21T18:36:40Z
+   Creation Date: 1997-09-15T04:00:00Z
+   Registry Expiry Date: 2020-09-14T04:00:00Z
+   Registrar: MarkMonitor Inc.
+   Registrar IANA ID: 292
+   Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+   Registrar Abuse Contact Phone: +1.2083895740
+   Domain Status: clientDeleteProhibited https://icann.org/epp<span class="token comment">#clientDeleteProhibited</span>
+   Domain Status: clientTransferProhibited https://icann.org/epp<span class="token comment">#clientTransferProhibited</span>
+   Domain Status: clientUpdateProhibited https://icann.org/epp<span class="token comment">#clientUpdateProhibited</span>
+   Domain Status: serverDeleteProhibited https://icann.org/epp<span class="token comment">#serverDeleteProhibited</span>
+   Domain Status: serverTransferProhibited https://icann.org/epp<span class="token comment">#serverTransferProhibited</span>
+   Domain Status: serverUpdateProhibited https://icann.org/epp<span class="token comment">#serverUpdateProhibited</span>
+   Name Server: NS1.GOOGLE.COM
+   Name Server: NS2.GOOGLE.COM
+   Name Server: NS3.GOOGLE.COM
+   Name Server: NS4.GOOGLE.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Last update of whois database: 2019-07-09T14:48:20Z <span class="token operator">&lt;&lt;&lt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><p>but note that whois has now less value since GDPR is here.</p>
+<h3 class="mume-header" id="classic-issues">Classic issues</h3>
+
+<h4 class="mume-header" id="ends-with">Ends with .</h4>
+
+<h4 class="mume-header" id="propagation-delay">Propagation delay</h4>
+
+<h4 class="mume-header" id="aggressive-cache">Aggressive cache</h4>
+
+<p>eg java will cache nearly forever, except if you tell him so.</p>
+<p><a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-jvm-ttl.html">https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-jvm-ttl.html</a></p>
+<h2 class="mume-header" id="https">HTTPS</h2>
+
+<h3 class="mume-header" id="self-signed-certificate">Self signed certificate</h3>
+
+<pre data-role="codeBlock" data-info="sh {.line-numbers}" class="language-bash line-numbers"><span class="token function">curl</span> -vvv https://self-signed.badssl.com/
+*   Trying 104.154.89.105<span class="token punctuation">..</span>.
+* Connected to self-signed.badssl.com <span class="token punctuation">(</span>104.154.89.105<span class="token punctuation">)</span> port 443 <span class="token punctuation">(</span><span class="token comment">#0)</span>
+* found 148 certificates <span class="token keyword">in</span> /etc/ssl/certs/ca-certificates.crt
+* found 597 certificates <span class="token keyword">in</span> /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none
+* Closing connection 0
+curl: <span class="token punctuation">(</span>60<span class="token punctuation">)</span> server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none
+More details here: http://curl.haxx.se/docs/sslcerts.html
+
+<span class="token function">curl</span> performs SSL certificate verification by default, using a <span class="token string">&quot;bundle&quot;</span>
+ of Certificate Authority <span class="token punctuation">(</span>CA<span class="token punctuation">)</span> public keys <span class="token punctuation">(</span>CA certs<span class="token punctuation">)</span>. If the default
+ bundle <span class="token function">file</span> isn<span class="token string">&apos;t adequate, you can specify an alternate file
+ using the --cacert option.
+If this HTTPS server uses a certificate signed by a CA represented in
+ the bundle, the certificate verification probably failed due to a
+ problem with the certificate (it might be expired, or the name might
+ not match the domain name in the URL).
+If you&apos;</span>d like to turn off curl&apos;s verification of the certificate, use
+ the -k <span class="token punctuation">(</span>or --insecure<span class="token punctuation">)</span> option.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="sh {.line-numbers}" class="language-bash line-numbers"><span class="token function">curl</span> -vvv -k https://self-signed.badssl.com/
+*   Trying 104.154.89.105<span class="token punctuation">..</span>.
+* Connected to self-signed.badssl.com <span class="token punctuation">(</span>104.154.89.105<span class="token punctuation">)</span> port 443 <span class="token punctuation">(</span><span class="token comment">#0)</span>
+* found 148 certificates <span class="token keyword">in</span> /etc/ssl/certs/ca-certificates.crt
+* found 597 certificates <span class="token keyword">in</span> /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification SKIPPED
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.badssl.com <span class="token punctuation">(</span>matched<span class="token punctuation">)</span>
+* 	 server certificate expiration <span class="token function">date</span> OK
+* 	 server certificate activation <span class="token function">date</span> OK
+* 	 certificate public key: RSA
+* 	 certificate version: <span class="token comment">#3</span>
+* 	 subject: C<span class="token operator">=</span>US,ST<span class="token operator">=</span>California,L<span class="token operator">=</span>San Francisco,O<span class="token operator">=</span>BadSSL,CN<span class="token operator">=</span>*.badssl.com
+* 	 start date: Wed, 12 Jun 2019 15:31:59 GMT
+* 	 expire date: Fri, 11 Jun 2021 15:31:59 GMT
+* 	 issuer: C<span class="token operator">=</span>US,ST<span class="token operator">=</span>California,L<span class="token operator">=</span>San Francisco,O<span class="token operator">=</span>BadSSL,CN<span class="token operator">=</span>*.badssl.com
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+<span class="token operator">&gt;</span> GET / HTTP/1.1
+<span class="token operator">&gt;</span> Host: self-signed.badssl.com
+<span class="token operator">&gt;</span> User-Agent: curl/7.47.0
+<span class="token operator">&gt;</span> Accept: */*
+<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span> HTTP/1.1 200 OK
+<span class="token operator">&lt;</span> Server: nginx/1.10.3 <span class="token punctuation">(</span>Ubuntu<span class="token punctuation">)</span>
+<span class="token operator">&lt;</span> Date: Mon, 08 Jul 2019 19:03:07 GMT
+<span class="token operator">&lt;</span> Content-Type: text/html
+<span class="token operator">&lt;</span> Content-Length: 477
+<span class="token operator">&lt;</span> Last-Modified: Fri, 21 Jun 2019 23:18:34 GMT
+<span class="token operator">&lt;</span> Connection: keep-alive
+<span class="token operator">&lt;</span> ETag: <span class="token string">&quot;5d0d65ca-1dd&quot;</span>
+<span class="token operator">&lt;</span> Cache-Control: no-store
+<span class="token operator">&lt;</span> Accept-Ranges: bytes
+<span class="token operator">&lt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">&quot;viewport&quot;</span> content<span class="token operator">=</span><span class="token string">&quot;width=device-width, initial-scale=1&quot;</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">&quot;shortcut icon&quot;</span> href<span class="token operator">=</span><span class="token string">&quot;/icons/favicon-red.ico&quot;</span>/<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">&quot;apple-touch-icon&quot;</span> href<span class="token operator">=</span><span class="token string">&quot;/icons/icon-red.png&quot;</span>/<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>self-signed.badssl.com<span class="token operator">&lt;</span>/title<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">&quot;stylesheet&quot;</span> href<span class="token operator">=</span><span class="token string">&quot;/style.css&quot;</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>style<span class="token operator">&gt;</span>body <span class="token punctuation">{</span> background: red<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token operator">&lt;</span>/style<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/head<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">&quot;content&quot;</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>h1 style<span class="token operator">=</span><span class="token string">&quot;font-size: 12vw;&quot;</span><span class="token operator">&gt;</span>
+    self-signed.<span class="token operator">&lt;</span>br<span class="token operator">&gt;</span>badssl.com
+  <span class="token operator">&lt;</span>/h1<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>/body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/html<span class="token operator">&gt;</span>
+* Connection <span class="token comment">#0 to host self-signed.badssl.com left intact</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><h3 class="mume-header" id="external-assessment">External assessment</h3>
+
+<p><a href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a></p>
+<h3 class="mume-header" id="test-your-client-library">Test your client library</h3>
+
+<p><a href="https://badssl.com/">https://badssl.com/</a></p>
+<h2 class="mume-header" id="ssh">ssh</h2>
+
+<h3 class="mume-header" id="permission-denied">Permission denied</h3>
+
+<pre data-role="codeBlock" data-info="sh {.line-numbers}" class="language-bash line-numbers"><span class="token function">ssh</span> bad@github.com
+Permission denied <span class="token punctuation">(</span>publickey<span class="token punctuation">)</span>.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></pre><p>Which certificate is used to authenticate ?</p>
+<pre data-role="codeBlock" data-info="sh {.line-numbers}" class="language-bash line-numbers"><span class="token function">ssh</span> -vvv bad@github.com
+OpenSSH_6.6.1, OpenSSL 1.0.1k-fips 8 Jan 2015
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 56: Applying options <span class="token keyword">for</span> *
+debug2: ssh_connect: needpriv 0
+debug1: Connecting to github.com <span class="token punctuation">[</span>140.82.118.3<span class="token punctuation">]</span> port 22.
+debug1: Connection established.
+debug1: identity <span class="token function">file</span> /home/ec2-user/.ssh/id_rsa <span class="token function">type</span> -1
+debug1: identity <span class="token function">file</span> /home/ec2-user/.ssh/id_rsa-cert <span class="token function">type</span> -1
+debug1: identity <span class="token function">file</span> /home/ec2-user/.ssh/id_dsa <span class="token function">type</span> -1
+debug1: identity <span class="token function">file</span> /home/ec2-user/.ssh/id_dsa-cert <span class="token function">type</span> -1
+debug1: identity <span class="token function">file</span> /home/ec2-user/.ssh/id_ecdsa <span class="token function">type</span> -1
+debug1: identity <span class="token function">file</span> /home/ec2-user/.ssh/id_ecdsa-cert <span class="token function">type</span> -1
+debug1: identity <span class="token function">file</span> /home/ec2-user/.ssh/id_ed25519 <span class="token function">type</span> -1
+debug1: identity <span class="token function">file</span> /home/ec2-user/.ssh/id_ed25519-cert <span class="token function">type</span> -1
+debug1: Enabling compatibility mode <span class="token keyword">for</span> protocol 2.0
+debug1: Local version string SSH-2.0-OpenSSH_6.6.1
+debug1: Remote protocol version 2.0, remote software version babeld-93408c70
+debug1: no match: babeld-93408c70
+debug2: fd 3 setting O_NONBLOCK
+debug3: load_hostkeys: loading entries <span class="token keyword">for</span> <span class="token function">host</span> <span class="token string">&quot;github.com&quot;</span> from <span class="token function">file</span> <span class="token string">&quot;/home/ec2-user/.ssh/known_hosts&quot;</span>
+debug3: load_hostkeys: found key <span class="token function">type</span> RSA <span class="token keyword">in</span> <span class="token function">file</span> /home/ec2-user/.ssh/known_hosts:1
+debug3: load_hostkeys: loaded 1 keys
+debug3: order_hostkeyalgs: prefer hostkeyalgs: ssh-rsa-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-rsa
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug2: kex_parse_kexinit: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+debug2: kex_parse_kexinit: ssh-rsa-cert-v01@openssh.com,ssh-rsa-cert-v00@openssh.com,ssh-rsa,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ssh-dss-cert-v01@openssh.com,ssh-dss-cert-v00@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,ssh-dss
+debug2: kex_parse_kexinit: aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se
+debug2: kex_parse_kexinit: aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes128-cbc,3des-cbc,blowfish-cbc,cast128-cbc,aes192-cbc,aes256-cbc,arcfour,rijndael-cbc@lysator.liu.se
+debug2: kex_parse_kexinit: hmac-md5-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-sha1,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96
+debug2: kex_parse_kexinit: hmac-md5-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-ripemd160-etm@openssh.com,hmac-sha1-96-etm@openssh.com,hmac-md5-96-etm@openssh.com,hmac-md5,hmac-sha1,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-ripemd160,hmac-ripemd160@openssh.com,hmac-sha1-96,hmac-md5-96
+debug2: kex_parse_kexinit: none,zlib@openssh.com,zlib
+debug2: kex_parse_kexinit: none,zlib@openssh.com,zlib
+debug2: kex_parse_kexinit: 
+debug2: kex_parse_kexinit: 
+debug2: kex_parse_kexinit: first_kex_follows 0 
+debug2: kex_parse_kexinit: reserved 0 
+debug2: kex_parse_kexinit: ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256
+debug2: kex_parse_kexinit: ssh-dss,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+debug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr,aes256-cbc,aes192-cbc,aes128-cbc
+debug2: kex_parse_kexinit: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr,aes256-cbc,aes192-cbc,aes128-cbc
+debug2: kex_parse_kexinit: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: kex_parse_kexinit: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: kex_parse_kexinit: none,zlib,zlib@openssh.com
+debug2: kex_parse_kexinit: none,zlib,zlib@openssh.com
+debug2: kex_parse_kexinit: 
+debug2: kex_parse_kexinit: 
+debug2: kex_parse_kexinit: first_kex_follows 0 
+debug2: kex_parse_kexinit: reserved 0 
+debug2: mac_setup: setup hmac-sha1-etm@openssh.com
+debug1: kex: server-<span class="token operator">&gt;</span>client aes128-ctr hmac-sha1-etm@openssh.com none
+debug2: mac_setup: setup hmac-sha1-etm@openssh.com
+debug1: kex: client-<span class="token operator">&gt;</span>server aes128-ctr hmac-sha1-etm@openssh.com none
+debug1: kex: ecdh-sha2-nistp256 need<span class="token operator">=</span>20 dh_need<span class="token operator">=</span>20
+debug1: kex: ecdh-sha2-nistp256 need<span class="token operator">=</span>20 dh_need<span class="token operator">=</span>20
+debug1: sending SSH2_MSG_KEX_ECDH_INIT
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server <span class="token function">host</span> key: RSA 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48
+debug3: load_hostkeys: loading entries <span class="token keyword">for</span> <span class="token function">host</span> <span class="token string">&quot;github.com&quot;</span> from <span class="token function">file</span> <span class="token string">&quot;/home/ec2-user/.ssh/known_hosts&quot;</span>
+debug3: load_hostkeys: found key <span class="token function">type</span> RSA <span class="token keyword">in</span> <span class="token function">file</span> /home/ec2-user/.ssh/known_hosts:1
+debug3: load_hostkeys: loaded 1 keys
+debug3: load_hostkeys: loading entries <span class="token keyword">for</span> <span class="token function">host</span> <span class="token string">&quot;140.82.118.3&quot;</span> from <span class="token function">file</span> <span class="token string">&quot;/home/ec2-user/.ssh/known_hosts&quot;</span>
+debug3: load_hostkeys: loaded 0 keys
+debug1: Host <span class="token string">&apos;github.com&apos;</span> is known and matches the RSA <span class="token function">host</span> key.
+debug1: Found key <span class="token keyword">in</span> /home/ec2-user/.ssh/known_hosts:1
+Warning: Permanently added the RSA <span class="token function">host</span> key <span class="token keyword">for</span> IP address <span class="token string">&apos;140.82.118.3&apos;</span> to the list of known hosts.
+debug1: ssh_rsa_verify: signature correct
+debug2: kex_derive_keys
+debug2: set_newkeys: mode 1
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug2: set_newkeys: mode 0
+debug1: SSH2_MSG_NEWKEYS received
+debug1: SSH2_MSG_SERVICE_REQUEST sent
+debug2: service_accept: ssh-userauth
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug2: key: /home/ec2-user/.ssh/id_rsa <span class="token variable"><span class="token punctuation">((</span>nil<span class="token punctuation">))</span></span>,
+debug2: key: /home/ec2-user/.ssh/id_dsa <span class="token variable"><span class="token punctuation">((</span>nil<span class="token punctuation">))</span></span>,
+debug2: key: /home/ec2-user/.ssh/id_ecdsa <span class="token variable"><span class="token punctuation">((</span>nil<span class="token punctuation">))</span></span>,
+debug2: key: /home/ec2-user/.ssh/id_ed25519 <span class="token variable"><span class="token punctuation">((</span>nil<span class="token punctuation">))</span></span>,
+debug1: Authentications that can continue: publickey
+debug3: start over, passed a different list publickey
+debug3: preferred gssapi-keyex,gssapi-with-mic,publickey,keyboard-interactive,password
+debug3: authmethod_lookup publickey
+debug3: remaining preferred: keyboard-interactive,password
+debug3: authmethod_is_enabled publickey
+debug1: Next authentication method: publickey
+debug1: Trying private key: /home/ec2-user/.ssh/id_rsa
+debug3: no such identity: /home/ec2-user/.ssh/id_rsa: No such <span class="token function">file</span> or directory
+debug1: Trying private key: /home/ec2-user/.ssh/id_dsa
+debug3: no such identity: /home/ec2-user/.ssh/id_dsa: No such <span class="token function">file</span> or directory
+debug1: Trying private key: /home/ec2-user/.ssh/id_ecdsa
+debug3: no such identity: /home/ec2-user/.ssh/id_ecdsa: No such <span class="token function">file</span> or directory
+debug1: Trying private key: /home/ec2-user/.ssh/id_ed25519
+debug3: no such identity: /home/ec2-user/.ssh/id_ed25519: No such <span class="token function">file</span> or directory
+debug2: we did not send a packet, disable method
+debug1: No <span class="token function">more</span> authentication methods to try.
+Permission denied <span class="token punctuation">(</span>publickey<span class="token punctuation">)</span>.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><pre data-role="codeBlock" data-info="{.line-numbers}" class="language- line-numbers"><code>debug2: key: /home/ec2-user/.ssh/id_rsa ((nil)),
+debug2: key: /home/ec2-user/.ssh/id_dsa ((nil)),
+debug2: key: /home/ec2-user/.ssh/id_ecdsa ((nil)),
+debug2: key: /home/ec2-user/.ssh/id_ed25519 
+</code><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></pre><p>Note that the look up policy can be influenced by <code>~/.ssh/config</code><br>
+In the worstcase scenario, you have plenty of available keys and ssh try them all and then server bans you for too much trials. &#x1F626;</p>
+<h2 class="mume-header" id="my-app-cant-connect-to-the-db">My app can&apos;t connect to the db</h2>
+
+<p>Ideally try as if in the network of your app.</p>
+<p>Possible causes :</p>
+<ul>
+<li>firewall ? vlan ?</li>
+<li>running on non-default port ?</li>
+<li>correct url (host, port,...) ?</li>
+<li>correct credentials ?</li>
+<li>storage available ? lack of disk space can lead to strange behavior</li>
+<li>server is really down ?</li>
+</ul>
+<p>Tools to diagnose if the error message isn&apos;t that clear</p>
+<h3 class="mume-header" id="try-with-a-command-line-tool">Try with a command line tool</h3>
+
+<p>if the command line tool is available : psql, mysql,... or mssql-cli</p>
+<pre data-role="codeBlock" data-info class="language-"><code>mssql-cli -P xxxxx -U admin -S dbinstancename.environment.eu-central-1.rds.amazonaws.com
+Error message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 35 - An internal exception was caught)
+</code></pre><h3 class="mume-header" id="try-with-telnet">Try with telnet</h3>
+
+<pre data-role="codeBlock" data-info class="language-"><code>telnet dbinstancename.environment.eu-central-1.rds.amazonaws.com 1433
+Trying 18.123.456.12...
+Connected to ec2-18-123-456-12.eu-central-1.compute.amazonaws.com.
+Escape character is &apos;^]&apos;.
+
+^C^ZConnection closed by foreign host.
+</code></pre><h3 class="mume-header" id="try-with-netcat">Try with netcat</h3>
+
+<p>telnet is often not installed by default, may be you have netcat</p>
+<pre data-role="codeBlock" data-info class="language-"><code>nc -v dbinstancename.environment.eu-central-1.rds.amazonaws.com 1443
+nc: getaddrinfo: Name or service not known
+
+</code></pre><h2 class="mume-header" id="nmap">nmap</h2>
+
+<h3 class="mume-header" id="self-checking">self checking</h3>
+
+<pre data-role="codeBlock" data-info class="language-"><code>nmap -sV github.com
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2019-07-08 21:26 CEST
+Nmap scan report for github.com (140.82.118.4)
+Host is up (0.039s latency).
+rDNS record for 140.82.118.4: lb-140-82-118-4-ams.github.com
+Not shown: 996 filtered ports
+PORT     STATE SERVICE   VERSION
+22/tcp   open  ssh       (protocol 2.0)
+80/tcp   open  http
+443/tcp  open  ssl/https GitHub.com
+9418/tcp open  git?
+3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+</code></pre><p>You probably don&apos;t want to expose your db, redis, mongo,... server directly from the internet<br>
+nmap help</p>
+<h3 class="mume-header" id="making-the-web-secure-one-unit-test-at-a-time">Making the web secure, one unit test at a time</h3>
+
+<p><a href="http://gauntlt.org/">http://gauntlt.org/</a></p>
+<p><a href="https://github.com/gauntlt/gauntlt/blob/master/examples/nmap/simple.attack">https://github.com/gauntlt/gauntlt/blob/master/examples/nmap/simple.attack</a></p>
+<pre data-role="codeBlock" data-info class="language-"><code>@slow
+Feature: simple nmap attack (sanity check)
+
+  Background:
+    Given &quot;nmap&quot; is installed
+    And the following profile:
+      | name     | value      |
+      | hostname | scanme.nmap.org |
+
+  Scenario: Verify server is available on standard web ports
+    When I launch an &quot;nmap&quot; attack with:
+      &quot;&quot;&quot;
+      nmap -p 80,443 &lt;hostname&gt;
+      &quot;&quot;&quot;
+    Then the output should match /80.tcp\s+open/
+    And the output should not match:
+      &quot;&quot;&quot;
+      443/tcp\s+open
+      &quot;&quot;&quot;
+
+</code></pre><h2 class="mume-header" id="wireshark">wireshark</h2>
+
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    <script>
+      var sequenceDiagrams = document.getElementsByClassName('sequence')
+      for (var i = 0; i < sequenceDiagrams.length; i++) {
+        var sequence = sequenceDiagrams[i]
+        try {
+          var diagram = Diagram.parse(sequence.textContent)
+          var theme = sequence.getAttribute('theme') || 'simple'
+          sequence.id = 'sequence_' + i
+          sequence.innerHTML = ''
+          diagram.drawSVG(sequence.id, {theme: theme})
+        } catch (error) {
+          sequence.innerHTML = '<pre class="language-text">' + error.toString() + '</pre>'
+        }
+      }
+      </script>
+    
+  
+    </body></html>

@@ -4,7 +4,7 @@
 
 ### Unknown entry
 
-```shell {line-numbers}
+```shell {.line-numbers}
 curl -vvv http://neverexisteddomains.com
 * Rebuilt URL to: http://neverexisteddomains.com/
 * Could not resolve host: neverexisteddomains.com
@@ -13,7 +13,7 @@ curl: (6) Could not resolve host: neverexisteddomains.com
 ```
 
 
-```shell
+```shell{.line-numbers}
 dig neverexisteddomains.com
 
 ; <<>> DiG 9.10.3-P4-Ubuntu <<>> neverexisteddomains.com
@@ -32,7 +32,7 @@ dig neverexisteddomains.com
 ```
 
 
-```shell
+```shell {.line-numbers}
 whois neverexisteddomains.com
 No match for "NEVEREXISTEDDOMAINS.COM".
 >>> Last update of whois database: 2019-07-08T19:04:39Z <<<
@@ -40,7 +40,7 @@ No match for "NEVEREXISTEDDOMAINS.COM".
 
 ### Known entry
 
-```shell
+```shell {.line-numbers}
 dig google.be
 
 ; <<>> DiG 9.10.3-P4-Ubuntu <<>> google.be
@@ -65,7 +65,7 @@ google.be.		255	IN	A	172.217.168.227
 
 whois might find some info
 
-```sh
+```sh {.line-numbers}
 whois google.com
    Domain Name: GOOGLE.COM
    Registry Domain ID: 2138514_DOMAIN_COM-VRSN
@@ -111,7 +111,7 @@ https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-jvm-ttl.html
 
 ### Self signed certificate
 
-```sh
+```sh {.line-numbers}
 curl -vvv https://self-signed.badssl.com/
 *   Trying 104.154.89.105...
 * Connected to self-signed.badssl.com (104.154.89.105) port 443 (#0)
@@ -136,7 +136,7 @@ If you'd like to turn off curl's verification of the certificate, use
  the -k (or --insecure) option.
 ```
 
-```sh
+```sh {.line-numbers}
 curl -vvv -k https://self-signed.badssl.com/
 *   Trying 104.154.89.105...
 * Connected to self-signed.badssl.com (104.154.89.105) port 443 (#0)
@@ -208,14 +208,14 @@ https://badssl.com/
 
 ### Permission denied
 
-```sh
+```sh {.line-numbers}
 ssh bad@github.com
 Permission denied (publickey).
 ```
 
 Which certificate is used to authenticate ?
 
-```sh
+```sh {.line-numbers}
 ssh -vvv bad@github.com
 OpenSSH_6.6.1, OpenSSL 1.0.1k-fips 8 Jan 2015
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -317,7 +317,7 @@ debug1: No more authentication methods to try.
 Permission denied (publickey).
 ```
 
-```
+``` {.line-numbers}
 debug2: key: /home/ec2-user/.ssh/id_rsa ((nil)),
 debug2: key: /home/ec2-user/.ssh/id_dsa ((nil)),
 debug2: key: /home/ec2-user/.ssh/id_ecdsa ((nil)),
@@ -342,7 +342,7 @@ Possible causes :
 
 Tools to diagnose if the error message isn't that clear
 
-### try with a command line tool
+### Try with a command line tool
 
 if the command line tool is available : psql, mysql,... or mssql-cli
 
@@ -351,7 +351,7 @@ mssql-cli -P xxxxx -U admin -S dbinstancename.environment.eu-central-1.rds.amazo
 Error message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 35 - An internal exception was caught)
 ```
 
-### try with telnet
+### Try with telnet
 ```
 telnet dbinstancename.environment.eu-central-1.rds.amazonaws.com 1433
 Trying 18.123.456.12...
@@ -361,7 +361,7 @@ Escape character is '^]'.
 ^C^ZConnection closed by foreign host.
 ```
 
-### try with netcat
+### Try with netcat
 
 telnet is often not installed by default, may be you have netcat
 
