@@ -48,7 +48,7 @@ Worker-> External Service: mail
 
 You are reading this book
 the skills :
-  - awareness : most developpers don't know the all stack, never observe their application failing, learn from your mistakes 
+  - awareness : most developers don't know the complete stack, never observe their application failing, learn from your mistakes 
   - evidence collection : get the logs,traces with the correct tool
   - deb
 

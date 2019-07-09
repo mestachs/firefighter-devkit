@@ -46,7 +46,7 @@
  - How :
     - go to that page, fill in with this content, ... 
  - Why :
-    - Every begining of the month, I'm supposed to send the report to accounting. I was trying to generate the monthly report but then everything went dark    
+    - Every beginning of the month, I'm supposed to send the report to accounting. I was trying to generate the monthly report but then everything went dark    
  - Evidences
    - Stacktrace, error message
    - thread dump, heap dump,...
@@ -94,3 +94,12 @@ Document and reflect on the issue
 - http://www.catb.org/esr/faqs/smart-questions.html 
 - https://www.amazon.com/DevOps-Troubleshooting-Linux-Server-Practices/dp/0321832043 
 - https://pragprog.com/book/pbdp/debug-it 
+- https://twitter.com/b0rk/status/1146159551315677189
+- https://twitter.com/b0rk/status/1145350304583622656
+- https://twitter.com/b0rk/status/1146149101995778054
+- https://twitter.com/b0rk/status/1148046227621199873
+- https://twitter.com/b0rk/status/1144352412557283328
+- https://twitter.com/b0rk/status/1148037549308481537
+- https://twitter.com/b0rk/status/1147267035275104256
+- https://twitter.com/b0rk/status/1147261917918109696
+- https://twitter.com/b0rk/status/1146431464701124608
