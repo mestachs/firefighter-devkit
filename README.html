@@ -260,7 +260,7 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <p><img src="assets/troubleshooting.png?0.9359893702845061" alt><br>
+      <p><img src="assets/troubleshooting.png?0.5820309674404662" alt><br>
 <a href="https://github.com/mestachs/firefighter-devkit/blob/master/LICENSE.md">Attribution-NonCommercial-ShareAlike 4.0 International</a></p>
 <ul>
 <li><a href="#troubleshooting">Troubleshooting</a>
@@ -268,7 +268,6 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#keep-calm">Keep calm</a></li>
 <li><a href="#document-follow-procedures">Document &amp; follow procedures</a></li>
 <li><a href="#reproduce-diagnose-fix-reflect">Reproduce - Diagnose - Fix - Reflect</a></li>
-<li><a href="#try-to-locate-the-problem">Try to locate the problem</a></li>
 <li><a href="#more-on-the-subject">More on the subject</a></li>
 </ul>
 </li>
@@ -332,7 +331,7 @@ pre[data-line] .line-highlight[data-end]:after {
 
 <h2 class="mume-header" id="keep-calm">Keep calm</h2>
 
-<img src="assets/keepcalm.png?0.40278306785100826" width="300px" height="300px" title="keep calm and don&apos;t restart your compulter" alt="keep calm and don&apos;t restart your compulter">
+<img src="assets/keepcalm.png?0.9064030295748788" width="300px" height="300px" title="keep calm and don&apos;t restart your computer" alt="keep calm and don&apos;t restart your computer">
 <ul>
 <li>Keep calm, you won&#x2019;t be fired
 <ul>
@@ -387,6 +386,8 @@ pre[data-line] .line-highlight[data-end]:after {
 <ul>
 <li>staging, production,...</li>
 <li>client, server, db,...</li>
+<li>which browser</li>
+<li>which mobile device</li>
 </ul>
 </li>
 <li>What :
@@ -394,8 +395,16 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>Error, missing data, bad data, empty screen,&#x2026;</li>
 </ul>
 </li>
-<li>How</li>
-<li>Why</li>
+<li>How :
+<ul>
+<li>go to that page, fill in with this content, ...</li>
+</ul>
+</li>
+<li>Why :
+<ul>
+<li>Every begining of the month, I&apos;m supposed to send the report to accounting. I was trying to generate the monthly report but then everything went dark</li>
+</ul>
+</li>
 <li>Evidences
 <ul>
 <li>Stacktrace, error message</li>
@@ -409,13 +418,27 @@ pre[data-line] .line-highlight[data-end]:after {
 </ul>
 <blockquote>
 <p>Automate evidence collections :<br>
-- log forwarded,<br>
+- log forwarded to aggregator,<br>
 - sentry alike service,<br>
 - shell script to run jstack, collect db queries,<br>
 - APM,<br>
 ...</p>
 </blockquote>
+<p><strong>Try to locate the problem</strong></p>
+<ul>
+<li>Use a dichotomic algorithm</li>
+<li>Use heuristic &#xAB; gut feeling &#xBB;</li>
+<li>Use brute force in last ressort</li>
+</ul>
 <p><strong>Try to relate to a previous issue or a change in your code/infrastructure</strong></p>
+<ul>
+<li>a new feature added to the product ?</li>
+<li>a new firewall rule added ?</li>
+<li>...</li>
+<li>a new user behavior</li>
+<li>a user is abusing the system (<a href="http://github.com">github.com</a> : commit message holding a dvd iso)</li>
+<li>marketing just sent user &quot;Deals&quot; or black friday ?</li>
+</ul>
 <p><strong>Update the documentation / FAQ, Improve our tests</strong></p>
 <p>Document and reflect on the issue</p>
 <ul>
@@ -423,13 +446,6 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>Did you find something via google/stackoverflow ?</li>
 <li>Can we have similar problem in another service/app, in another team ?</li>
 <li>What can we improve to prevent this ?</li>
-</ul>
-<h2 class="mume-header" id="try-to-locate-the-problem">Try to locate the problem</h2>
-
-<ul>
-<li>Use a dichotomic algorithm</li>
-<li>Use heuristic &#xAB; gut feeling &#xBB;</li>
-<li>Use brute force in last ressort</li>
 </ul>
 <h2 class="mume-header" id="more-on-the-subject">More on the subject</h2>
 
