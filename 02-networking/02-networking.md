@@ -1,10 +1,10 @@
-[TOC]
+# Networking
 
-# DNS what ?
+## DNS what ?
 
-## Unknown entry
+### Unknown entry
 
-```
+```shell {line-numbers}
 curl -vvv http://neverexisteddomains.com
 * Rebuilt URL to: http://neverexisteddomains.com/
 * Could not resolve host: neverexisteddomains.com
@@ -13,7 +13,7 @@ curl: (6) Could not resolve host: neverexisteddomains.com
 ```
 
 
-```
+```shell
 dig neverexisteddomains.com
 
 ; <<>> DiG 9.10.3-P4-Ubuntu <<>> neverexisteddomains.com
@@ -32,15 +32,15 @@ dig neverexisteddomains.com
 ```
 
 
-```
+```shell
 whois neverexisteddomains.com
 No match for "NEVEREXISTEDDOMAINS.COM".
 >>> Last update of whois database: 2019-07-08T19:04:39Z <<<
 ```
 
-## knwon entry
+### Known entry
 
-```
+```shell
 dig google.be
 
 ; <<>> DiG 9.10.3-P4-Ubuntu <<>> google.be
@@ -63,25 +63,55 @@ google.be.		255	IN	A	172.217.168.227
 ;; MSG SIZE  rcvd: 54
 ```
 
-## Classic issues
+whois might find some info
 
-### ends with .
+```sh
+whois google.com
+   Domain Name: GOOGLE.COM
+   Registry Domain ID: 2138514_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.markmonitor.com
+   Registrar URL: http://www.markmonitor.com
+   Updated Date: 2018-02-21T18:36:40Z
+   Creation Date: 1997-09-15T04:00:00Z
+   Registry Expiry Date: 2020-09-14T04:00:00Z
+   Registrar: MarkMonitor Inc.
+   Registrar IANA ID: 292
+   Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+   Registrar Abuse Contact Phone: +1.2083895740
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
+   Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
+   Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
+   Name Server: NS1.GOOGLE.COM
+   Name Server: NS2.GOOGLE.COM
+   Name Server: NS3.GOOGLE.COM
+   Name Server: NS4.GOOGLE.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2019-07-09T14:48:20Z <<<
+```
 
-### propagation delay
+but note that whois has now less value since GDPR is here.
 
+### Classic issues
 
-### aggressive cache
+#### Ends with .
 
+#### Propagation delay
+
+#### Aggressive cache
 
 eg java will cache nearly forever, except if you tell him so.
 
 https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-jvm-ttl.html
 
-# HTTPS
+## HTTPS
 
-## Self signed
+### Self signed certificate
 
-```
+```sh
 curl -vvv https://self-signed.badssl.com/
 *   Trying 104.154.89.105...
 * Connected to self-signed.badssl.com (104.154.89.105) port 443 (#0)
@@ -106,7 +136,7 @@ If you'd like to turn off curl's verification of the certificate, use
  the -k (or --insecure) option.
 ```
 
-```
+```sh
 curl -vvv -k https://self-signed.badssl.com/
 *   Trying 104.154.89.105...
 * Connected to self-signed.badssl.com (104.154.89.105) port 443 (#0)
@@ -165,27 +195,27 @@ curl -vvv -k https://self-signed.badssl.com/
 * Connection #0 to host self-signed.badssl.com left intact
 ```
 
-## external assessment
+### External assessment
 
 https://www.ssllabs.com/ssltest/
 
-## test your client library
+### Test your client library
 
 https://badssl.com/
 
 
-# ssh/scp
+## ssh
 
-## Permission denied
+### Permission denied
 
-```
+```sh
 ssh bad@github.com
 Permission denied (publickey).
 ```
 
 Which certificate is used to authenticate ?
 
-```
+```sh
 ssh -vvv bad@github.com
 OpenSSH_6.6.1, OpenSSL 1.0.1k-fips 8 Jan 2015
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -285,13 +315,23 @@ debug3: no such identity: /home/ec2-user/.ssh/id_ed25519: No such file or direct
 debug2: we did not send a packet, disable method
 debug1: No more authentication methods to try.
 Permission denied (publickey).
-
 ```
 
+```
+debug2: key: /home/ec2-user/.ssh/id_rsa ((nil)),
+debug2: key: /home/ec2-user/.ssh/id_dsa ((nil)),
+debug2: key: /home/ec2-user/.ssh/id_ecdsa ((nil)),
+debug2: key: /home/ec2-user/.ssh/id_ed25519 
+```
 
-# can't connect to the db
+Note that the look up policy can be influenced by `~/.ssh/config`
+In the worstcase scenario, you have plenty of available keys and ssh try them all and then server bans you for too much trials. :(
 
-ideally try as if in the network of your app.
+## My app can't connect to the db
+
+Ideally try as if in the network of your app.
+
+Possible causes :
 
 * firewall ? vlan ?
 * running on non-default port ?
@@ -300,9 +340,9 @@ ideally try as if in the network of your app.
 * storage available ? lack of disk space can lead to strange behavior
 * server is really down ?
 
-tool to diagnose if the error message isn't that clear
+Tools to diagnose if the error message isn't that clear
 
-## try with a command line tool
+### try with a command line tool
 
 if the command line tool is available : psql, mysql,... or mssql-cli
 
@@ -311,7 +351,7 @@ mssql-cli -P xxxxx -U admin -S dbinstancename.environment.eu-central-1.rds.amazo
 Error message: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 35 - An internal exception was caught)
 ```
 
-## try with telnet
+### try with telnet
 ```
 telnet dbinstancename.environment.eu-central-1.rds.amazonaws.com 1433
 Trying 18.123.456.12...
@@ -321,7 +361,7 @@ Escape character is '^]'.
 ^C^ZConnection closed by foreign host.
 ```
 
-## try with netcat
+### try with netcat
 
 telnet is often not installed by default, may be you have netcat
 
@@ -333,10 +373,10 @@ nc: getaddrinfo: Name or service not known
 
 
 
-# nmap
+## nmap
 
 
-## self checking
+### self checking
 
 
 ```
@@ -358,7 +398,7 @@ PORT     STATE SERVICE   VERSION
 You probably don't want to expose your db, redis, mongo,... server directly from the internet
 nmap help
 
-## Making the web secure, one unit test at a time
+### Making the web secure, one unit test at a time
 
 http://gauntlt.org/
 
@@ -390,5 +430,5 @@ Feature: simple nmap attack (sanity check)
 ```
 
 
-# wireshark
+## wireshark
 

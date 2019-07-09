@@ -1,9 +1,8 @@
+# Introduction
 
-[TOC]
+## What can go wrong ?
 
-# What can go wrong ?
-
-## Let the music play
+### Let the music play
 
 accessing a website triggers plenty of activity on plenty of components/server
 
@@ -41,11 +40,11 @@ Worker-> External Service: mail
 
 ```
 
-## The Bad news
+### The Bad news
 > Every arrow can fail, take hours to complete, never complete,... 
 > Every box can mis-behave, welcome to the internet.
 
-## The Good news
+### The Good news
 
 You are reading this book
 the skills :
@@ -53,7 +52,7 @@ the skills :
   - evidence collection : get the logs,traces with the correct tool
   - deb
 
-## Sample scenario
+### Sample scenario
 
 - network
   - dns : no dns, ipv6, sometimes ok, sometimes not
